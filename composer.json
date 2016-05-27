@@ -1,0 +1,31 @@
+{
+    "name": "kilix/abac-bundle",
+    "type": "symfony-bundle",
+    "description": "Symfony Bundle to wrap php-abac library into symfony applications",
+    "keywords": ["access-control", "attributes", "security"],
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Axel Venet",
+            "email": "avenet@kilix.fr",
+            "homepage": "http://www.kilix.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": "~2.3|~3.0"
+    },
+    "require-dev": {
+        "symfony/console": "~2.3|~3.0",
+        "symfony/phpunit-bridge": "~2.7|~3.0"
+    },
+    "autoload": {
+        "psr-4": { "Kilix\\AbacBundle\\": "" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}
