@@ -77,6 +77,7 @@ class AppKernel extends Kernel
 ```
 
 ```yaml
+#app/config/config.yml
 kilix_abac:
     configuration_files:
         - app/config/attributes.yml
