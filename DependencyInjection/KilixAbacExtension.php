@@ -22,8 +22,8 @@ class KilixAbacExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         
-        $container->setDefinition('kilix_abac.security', new Definition('PhpAbac\Abac', [
+        $container->setDefinition('kilix_abac.security', (new Definition('PhpAbac\Abac', [
             $config['configuration_files']
-        ]));
+        ]))->setPublic(true));
     }
 }
