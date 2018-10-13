@@ -1,6 +1,6 @@
 <?php
 
-namespace Kilix\AbacBundle\DependencyInjection;
+namespace CraftCamp\AbacBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('kilix_abac');
+        $rootNode = $treeBuilder->root('craftcamp_abac');
         $rootNode
             ->children()
                 ->arrayNode('configuration_files')

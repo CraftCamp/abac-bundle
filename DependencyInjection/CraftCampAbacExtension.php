@@ -1,6 +1,6 @@
 <?php
 
-namespace Kilix\AbacBundle\DependencyInjection;
+namespace CraftCamp\AbacBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -12,7 +12,7 @@ use Symfony\Component\DependencyInjection\Definition;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class KilixAbacExtension extends Extension
+class CraftCampAbacExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -22,7 +22,7 @@ class KilixAbacExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         
-        $container->setDefinition('kilix_abac.security', (new Definition('PhpAbac\Abac', [
+        $container->setDefinition('craftcamp_abac.security', (new Definition('PhpAbac\Abac', [
             $config['configuration_files']
         ]))->setPublic(true));
     }
