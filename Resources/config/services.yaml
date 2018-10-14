@@ -1,0 +1,39 @@
+services:
+    
+    PhpAbac\Configuration\Configuration:
+        public: false
+        autowire: false
+        arguments:
+            - '%craftcamp_abac.configuration_files%'
+            
+    PhpAbac\Configuration\ConfigurationInterface: '@PhpAbac\Configuration\Configuration'
+        
+    PhpAbac\Manager\PolicyRuleManager:
+        public: false
+        autowire: true
+        
+    PhpAbac\Manager\PolicyRuleManagerInterface: '@PhpAbac\Manager\PolicyRuleManager'
+        
+    PhpAbac\Manager\AttributeManager:
+        public: false
+        autowire: true
+        
+    PhpAbac\Manager\AttributeManagerInterface: '@PhpAbac\Manager\AttributeManager'
+        
+    PhpAbac\Manager\ComparisonManager:
+        public: false
+        autowire: true
+        
+    PhpAbac\Manager\ComparisonManagerInterface: '@PhpAbac\Manager\ComparisonManager'
+        
+    PhpAbac\Manager\CacheManager:
+        public: false
+        autowire: true
+        
+    PhpAbac\Manager\CacheManagerInterface: '@PhpAbac\Manager\CacheManager'
+        
+    PhpAbac\Abac:
+        public: true
+        autowire: true
+        
+    craftcamp_abac.security: '@PhpAbac\Abac'
