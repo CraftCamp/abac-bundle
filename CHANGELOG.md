@@ -1,3 +1,7 @@
+## [0.3.3] - 2018-10-14
+### Fixed
+- Abac service alias visibility
+
 ## [0.3.2] - 2018-10-14
 ### Fixed
 - Bundle configuration alias
