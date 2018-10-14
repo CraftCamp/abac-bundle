@@ -21,7 +21,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('craftcamp_abac');
         $rootNode
             ->children()
-                ->arrayNode('configuration_files')->isRequired()->cannotBeEmpty()
+                ->arrayNode('configuration_files')->isRequired()->requiresAtLeastOneElement()
                     ->prototype('scalar')->end()
                 ->end()
                 ->arrayNode('cache_options')
