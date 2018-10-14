@@ -1,3 +1,8 @@
+## [0.3.1] - 2018-10-14
+### Fixed
+- Bundle name
+- Repository badges links
+
 ## [0.3.0] - 2018-10-14
 ### Added
 - Support of PHP-ABAC 3.0
