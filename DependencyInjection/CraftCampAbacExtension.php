@@ -27,7 +27,7 @@ class CraftCampAbacExtension extends Extension
         $config = $this->processConfiguration($configuration, $configs);
         
         $container->setParameter('craftcamp_abac.configuration_files', $config['configuration_files']);
-        $container->setParameter('craftcamp_abac.cache_options', $config['cache_options']);
-        $container->setParameter('craftcamp_abac.attribute_options', $config['attribute_options']);
+        $container->setParameter('craftcamp_abac.cache_options', (isset($config['cache_options'])) ? $config['cache_options'] : []);
+        $container->setParameter('craftcamp_abac.attribute_options', (isset($config['attribute_options'])) ? $config['attribute_options'] : []);
     }
 }
