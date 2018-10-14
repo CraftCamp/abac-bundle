@@ -29,8 +29,8 @@ class MarketController extends Controller
 {
     public function buyAction($productId) {
         $product = $this->get('product_manager')->getProduct($productId);
-        // Call the "kilix_abac.security" to check if the user can buy the given product
-        $access = $this->get('kilix_abac.security')->enforce(
+        // Call the "craftcamp_abac.security" to check if the user can buy the given product
+        $access = $this->get('craftcamp_abac.security')->enforce(
             'product_buying_rule', // the rule name
             $this->getUser(), // The current user
             $product // The resource we want to check for access
@@ -51,7 +51,7 @@ Installation
 Use composer to set the bundle as your project dependency :
 
 ```
-composer require kilix/abac-bundle
+composer require craftcamp/abac-bundle
 ```
 
 Then you must load the bundle in your AppKernel file and configure it :
@@ -68,7 +68,7 @@ class AppKernel extends Kernel
     {
         $bundles = [
             // ...
-            new Kilix\AbacBundle\KilixAbacBundle(),
+            new CraftCamp\AbacBundle\CraftCampAbacBundle(),
         ];
         // ...
         return $bundles;
@@ -78,16 +78,18 @@ class AppKernel extends Kernel
 
 ```yaml
 #app/config/config.yml
-kilix_abac:
+craftcamp_abac:
     configuration_files:
         - app/config/attributes.yml
         - app/config/policy_rules.yml
+    cache_options: # optional
+        cache_folder: '%kernel.cache_dir%/abac'
 ```
 
 Documentation
 -------------
 
-Please refer to the [PHP ABAC documentation](https://github.com/Kilix/abac-bundle)
+Please refer to the [PHP ABAC documentation](https://github.com/CraftCamp/php-abac)
 
 Usage
 -----
@@ -98,7 +100,7 @@ To check if a rule is enforced, you must define a rule in your configuration fil
 
 A rule can check user and resource attributes or just the user's.
 
-This is an exmaple of configured rule:
+This is an example of configured rule:
 
 ```yaml
 # policy_rules.yml
@@ -174,8 +176,8 @@ class VehicleHomologationController extends Controller
 {
     public function homologateAction($vehicleId) {
         $vehicle = $this->get('vehicle_manager')->getProduct($vehicleId);
-        // Call the "kilix_abac.security" to check if the user can homologate the given vehicle
-        $access = $this->get('kilix_abac.security')->enforce(
+        // Call the "craftcamp_abac.security" to check if the user can homologate the given vehicle
+        $access = $this->get('craftcamp_abac.security')->enforce(
             'vehicle-homologation', // the rule name
             $this->getUser(), // The current user
             $vehicle // The resource we want to check for access
@@ -189,3 +191,57 @@ class VehicleHomologationController extends Controller
     }
 }
 ```
+
+Since 0.3.0, you can use autowiring in your controller
+
+```php
+<?php
+
+use PhpAbac\Abac;
+
+class VehicleHomologationController extends Controller
+{
+    public function homologateAction(Abac $abac, $vehicleId) {
+        $vehicle = $this->get('vehicle_manager')->getProduct($vehicleId);
+
+        $access = $abac->enforce(
+            'vehicle-homologation', // the rule name
+            $this->getUser(), // The current user
+            $vehicle // The resource we want to check for access
+        );
+        if($access !== true) {
+            return new JsonResponse([
+                // In case of denied access, the library will return an array of the unmatched attributes slugs
+                'rejected_attributes' => $access
+            ], 403);
+        }
+    }
+}
+```
+
+Overiding components
+--------------------
+
+The ``Abac`` service being autowired, you can replace any of its dependencies by reconfiguring their aliases.
+
+For instance, if you want to implement your own ``CacheManager``, you just have to implement the following configuration:
+
+```
+# services.yaml
+services:
+    App\Cache\MyCacheManager:
+        public: true
+        autowire: true
+
+    PhpAbac\Manager\CacheManagerInterface: '@App\Cache\MyCacheManager'
+```
+
+Of course your component must implement the associated interface.
+
+The overridable interfaces are:
+
+* PhpAbac\Configuration\ConfigurationInterface
+* PhpAbac\Manager\PolicyRuleManagerInterface
+* PhpAbac\Manager\AttributeManagerInterface
+* PhpAbac\Manager\ComparisonManagerInterface
+* PhpAbac\Manager\CacheManagerInterface
