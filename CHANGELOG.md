@@ -1,3 +1,14 @@
+## [0.3.0] - 2018-10-14
+### Added
+- Support of PHP-ABAC 3.0
+- Cache options
+- Attribute options
+- Component overriding
+- ABAC service autowiring
+
+### Changed
+- Repository name
+
 ## [0.2.0] - 2018-01-29
 ### Added
 - Public definition of ABAC service
