@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f6f5f4b790e749c2e557a442c07f7500",
+    "content-hash": "788b0c4126b3af562b6f52c62908809c",
     "packages": [
         {
             "name": "composer/semver",
@@ -111,6 +111,57 @@
                 "performance"
             ],
             "time": "2018-08-31T19:07:57+00:00"
+        },
+        {
+            "name": "craftcamp/php-abac",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CraftCamp/php-abac.git",
+                "reference": "d7cf3473591714860fe2ec3183af6f554fa77029"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CraftCamp/php-abac/zipball/d7cf3473591714860fe2ec3183af6f554fa77029",
+                "reference": "d7cf3473591714860fe2ec3183af6f554fa77029",
+                "shasum": ""
+            },
+            "require": {
+                "friendsofphp/php-cs-fixer": "^2.12",
+                "php": ">=7.0",
+                "psr/cache": "~1.0",
+                "symfony/config": "~3.0|^4.0",
+                "symfony/yaml": "~3.0|^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpAbac\\": "src/",
+                    "PhpAbac\\Example\\": "example/",
+                    "PhpAbac\\Test\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Axel Venet",
+                    "email": "kern046@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Library used to implement Attribute-Based Access Control in a PHP application",
+            "keywords": [
+                "access-control",
+                "attributes",
+                "security"
+            ],
+            "time": "2018-10-13T16:26:18+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -329,56 +380,6 @@
             ],
             "description": "A tool to automatically fix PHP code style",
             "time": "2018-08-23T13:15:44+00:00"
-        },
-        {
-            "name": "kilix/php-abac",
-            "version": "v2.1.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/CraftCamp/php-abac.git",
-                "reference": "c71ef91c8b39606fd4b958a6decd75acfd0b6acd"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/CraftCamp/php-abac/zipball/c71ef91c8b39606fd4b958a6decd75acfd0b6acd",
-                "reference": "c71ef91c8b39606fd4b958a6decd75acfd0b6acd",
-                "shasum": ""
-            },
-            "require": {
-                "friendsofphp/php-cs-fixer": "^2.0",
-                "php": ">=5.5.9",
-                "psr/cache": "~1.0",
-                "symfony/config": "~3.0|^4.0",
-                "symfony/serializer": "~3.0|^4.0",
-                "symfony/yaml": "~3.0|^4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PhpAbac\\": "src/",
-                    "PhpAbac\\Example\\": "example/",
-                    "PhpAbac\\Test\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Axel Venet",
-                    "email": "avenet@kilix.fr",
-                    "homepage": "http://www.kilix.fr",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Library used to implement Attribute-Based Access Control in a PHP application",
-            "keywords": [
-                "access-control",
-                "attributes",
-                "security"
-            ],
-            "time": "2018-01-30T23:33:42+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1825,86 +1826,6 @@
             "time": "2018-10-02T12:40:59+00:00"
         },
         {
-            "name": "symfony/serializer",
-            "version": "v4.1.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/serializer.git",
-                "reference": "2704442b2b85429b95659fdce1696cb8f009385f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/2704442b2b85429b95659fdce1696cb8f009385f",
-                "reference": "2704442b2b85429b95659fdce1696cb8f009385f",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3",
-                "symfony/polyfill-ctype": "~1.8"
-            },
-            "conflict": {
-                "phpdocumentor/type-resolver": "<0.2.1",
-                "symfony/dependency-injection": "<3.4",
-                "symfony/property-access": "<3.4",
-                "symfony/property-info": "<3.4",
-                "symfony/yaml": "<3.4"
-            },
-            "require-dev": {
-                "doctrine/annotations": "~1.0",
-                "doctrine/cache": "~1.0",
-                "phpdocumentor/reflection-docblock": "^3.0|^4.0",
-                "symfony/cache": "~3.4|~4.0",
-                "symfony/config": "~3.4|~4.0",
-                "symfony/dependency-injection": "~3.4|~4.0",
-                "symfony/http-foundation": "~3.4|~4.0",
-                "symfony/property-access": "~3.4|~4.0",
-                "symfony/property-info": "~3.4|~4.0",
-                "symfony/validator": "~3.4|~4.0",
-                "symfony/yaml": "~3.4|~4.0"
-            },
-            "suggest": {
-                "doctrine/annotations": "For using the annotation mapping. You will also need doctrine/cache.",
-                "doctrine/cache": "For using the default cached annotation reader and metadata cache.",
-                "psr/cache-implementation": "For using the metadata cache.",
-                "symfony/config": "For using the XML mapping loader.",
-                "symfony/http-foundation": "To use the DataUriNormalizer.",
-                "symfony/property-access": "For using the ObjectNormalizer.",
-                "symfony/property-info": "To deserialize relations.",
-                "symfony/yaml": "For using the default YAML mapping loader."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.1-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Serializer\\": ""
-                },
-                "exclude-from-classmap": [
-                    "/Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                },
-                {
-                    "name": "Symfony Community",
-                    "homepage": "https://symfony.com/contributors"
-                }
-            ],
-            "description": "Symfony Serializer Component",
-            "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:40:59+00:00"
-        },
-        {
             "name": "symfony/stopwatch",
             "version": "v4.1.6",
             "source": {
@@ -2016,16 +1937,16 @@
     "packages-dev": [
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v4.1.6",
+            "version": "v4.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
-                "reference": "2474c5d4a5e3431fee2f6f0dddde9d34983d9ceb"
+                "reference": "413eb0600577cb0857ddfe68d5b2d4a1712afd22"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/2474c5d4a5e3431fee2f6f0dddde9d34983d9ceb",
-                "reference": "2474c5d4a5e3431fee2f6f0dddde9d34983d9ceb",
+                "url": "https://api.github.com/repos/symfony/phpunit-bridge/zipball/413eb0600577cb0857ddfe68d5b2d4a1712afd22",
+                "reference": "413eb0600577cb0857ddfe68d5b2d4a1712afd22",
                 "shasum": ""
             },
             "require": {
@@ -2044,11 +1965,7 @@
             "type": "symfony-bridge",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
-                },
-                "thanks": {
-                    "name": "phpunit/phpunit",
-                    "url": "https://github.com/sebastianbergmann/phpunit"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -2078,7 +1995,7 @@
             ],
             "description": "Symfony PHPUnit Bridge",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T12:40:59+00:00"
+            "time": "2017-11-22T12:29:35+00:00"
         }
     ],
     "aliases": [],
