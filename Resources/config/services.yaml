@@ -17,6 +17,8 @@ services:
     PhpAbac\Manager\AttributeManager:
         public: false
         autowire: true
+        arguments:
+            $options: '%craftcamp_abac.attribute_options%'
         
     PhpAbac\Manager\AttributeManagerInterface: '@PhpAbac\Manager\AttributeManager'
         
@@ -29,6 +31,8 @@ services:
     PhpAbac\Manager\CacheManager:
         public: false
         autowire: true
+        arguments:
+            - '%craftcamp_abac.cache_options%'
         
     PhpAbac\Manager\CacheManagerInterface: '@PhpAbac\Manager\CacheManager'
         
