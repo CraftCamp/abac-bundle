@@ -1,3 +1,7 @@
+## [0.3.2] - 2018-10-14
+### Fixed
+- Bundle configuration alias
+
 ## [0.3.1] - 2018-10-14
 ### Fixed
 - Bundle name
