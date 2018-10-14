@@ -40,4 +40,6 @@ services:
         public: true
         autowire: true
         
-    craftcamp_abac.security: '@PhpAbac\Abac'
+    craftcamp_abac.security: 
+        alias: PhpAbac\Abac
+        public: true
