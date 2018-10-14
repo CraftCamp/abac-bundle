@@ -1,13 +1,13 @@
 language: php
 
-sudo: false
-
 php:
   - 7.0
+  - 7.1
+  - 7.2
 
-before_script:
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev --no-interaction
+install:
+  - composer config -g platform.php $TRAVIS_PHP_VERSION
+  - composer update
 
 script:
   - mkdir -p build/logs
